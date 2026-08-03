@@ -4,20 +4,21 @@
 同时拉取 Git 最新代码并更新两个 SVN 目录，确保本地与远程完全一致。
 
 ## 路径常量
-- Git 仓库：`E:\YYDS\yyds_client`
-- SVN Art：`E:\YYDS\yyds_client\UnityClient\Assets\FashionBeat_ArtSVN`
-- SVN Music：`E:\YYDS\yyds_client\UnityClient\Assets\FashionBeat_MusicGit`
+> ⚠️ 请将以下占位符替换为实际路径后再使用
+- Git 仓库：`YOUR_GIT_REPO`
+- SVN Art：`YOUR_SVN_ART_DIR`
+- SVN Music：`YOUR_SVN_MUSIC_DIR`
 
 ## 执行步骤
 
 ### 1. 检查当前分支
 ```powershell
-cd E:\YYDS\yyds_client
+cd YOUR_GIT_REPO
 git branch --show-current
 ```
 
 ### 2. 询问是否切换分支
-显示当前分支，询问学姐是否需要切换。
+显示当前分支，询问用户是否需要切换。
 
 使用 `render_ui` 的 `QuestionForm` 组件：
 ```json
@@ -52,8 +53,8 @@ git status --short
 
 ### 5. SVN 更新
 ```powershell
-svn update "E:\YYDS\yyds_client\UnityClient\Assets\FashionBeat_ArtSVN"
-svn update "E:\YYDS\yyds_client\UnityClient\Assets\FashionBeat_MusicGit"
+svn update "YOUR_SVN_ART_DIR"
+svn update "YOUR_SVN_MUSIC_DIR"
 ```
 
 ### 6. 本地 Revert（确保与远程完全一致）
@@ -65,8 +66,8 @@ git restore .
 
 **SVN 层：**
 ```powershell
-svn revert -R "E:\YYDS\yyds_client\UnityClient\Assets\FashionBeat_ArtSVN"
-svn revert -R "E:\YYDS\yyds_client\UnityClient\Assets\FashionBeat_MusicGit"
+svn revert -R "YOUR_SVN_ART_DIR"
+svn revert -R "YOUR_SVN_MUSIC_DIR"
 ```
 
 ### 7. 自动清理 stash
